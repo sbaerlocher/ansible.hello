@@ -8,4 +8,4 @@ $file = "$env:TEMP\ConfigureRemotingForAnsible.ps1"
 
 (New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
 
-powershell.exe -ExecutionPolicy ByPass -File $file
+Start-Process powershell -Verb runAs -ArgumentList '-ExecutionPolicy ByPass -noprofile -File $file'
